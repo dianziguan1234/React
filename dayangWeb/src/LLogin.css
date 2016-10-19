@@ -48,7 +48,8 @@
 .Third {
     flex-direction:row;
     justify-content:flex-start;
-    align-items:center;
+    align-content:center;
+    align-items:stretch;
     display: flex;
     height:60px;
 }
@@ -60,4 +61,10 @@
     //justify-content:center;
     margin-top:20px;
 }
-
+.Button {
+    margin-left:160px;
+    margin-right:160px;
+    margin-top:20px;
+    margin-bottom:0px;
+    height:40px;
+}

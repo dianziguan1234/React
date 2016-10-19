@@ -76,12 +76,10 @@ var LoginPage = React.createClass({
                     type="text" />
                 <br />
             </div>
-            <div className="Third">
-                <input className="SubmitInput"
-                    type="button" 
-                    value="登录"
-                    onClick={this.setRequest} />
-            </div>
+            <button className="Button"
+                name="button">
+                登录
+            </button>
                 <h1>
                     {this.state.response.guardianId}
                     <br />
