@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import hex_md5 from './MD5';
 import md5 from "react-native-md5";
+import './LLogin.css';
 
 var LoginPage = React.createClass({
     setRequest: function () {
@@ -54,20 +55,33 @@ var LoginPage = React.createClass({
     },
     render: function () {
         return (
-            <div>
-                <input 
+            <div className="App-header">
+                <div className="First">
+                    <p1 className="Zhanghao">
+                        账号
+                    </p1>
+                <input className="NameInput"
                     value={this.state.nameIputText}
                     onChange={this.handleNameIput}
                     type="text" />
-                <br />
-                <input 
+                </div>
+            <br />
+            <div className="Second">
+                <p1 className="Zhanghao">
+                    密码
+                </p1>
+                <input className="PassInput"
                     value={this.state.passIputText}
                     onChange={this.handlePassIput}
                     type="text" />
                 <br />
-                <input 
+            </div>
+            <div className="Third">
+                <input className="SubmitInput"
                     type="button" 
+                    value="登录"
                     onClick={this.setRequest} />
+            </div>
                 <h1>
                     {this.state.response.guardianId}
                     <br />

@@ -1,0 +1,63 @@
+.App-header {
+  background-color: green;
+  height: 350px;
+  color: white;
+  flex-direction:column;
+  justify-content:flex-start;
+  display: flex;
+  flex: auto,
+}
+.NameInput {
+    margin-left:30px;
+    margin-right:30px;
+    margin-top:10px;
+    margin-bottom:10px;
+    flex: auto;
+    height:30px;
+}
+.PassInput {
+    margin-left:30px;
+    margin-right:30px;
+    margin-top:10px;
+    margin-bottom:10px;
+    flex: auto;
+    height:30px;
+}
+.SubmitInput {
+    margin-left:160px;
+    margin-right:160px;
+    flex: auto;
+    margin-top:0px;
+    margin-bottom:0px;
+    height:40px;
+}
+.First {
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    display: flex;
+    height:60px;
+}
+.Second {
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+    height:60px;
+}
+.Third {
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    display: flex;
+    height:60px;
+}
+.ZHanghao {
+    margin-left:10px;
+    margin-bottom:10px;
+    flex: auto;
+    //align-content:center;
+    //justify-content:center;
+    margin-top:20px;
+}
+
