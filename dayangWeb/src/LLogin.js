@@ -77,6 +77,7 @@ var LoginPage = React.createClass({
                 <br />
             </div>
             <button className="Button"
+                onClick={this.setRequest}
                 name="button">
                 登录
             </button>
