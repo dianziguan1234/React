@@ -4,6 +4,14 @@ import md5 from "react-native-md5";
 import './LLogin.css';
 
 var LoginPage = React.createClass({
+    getDefaultProps: function() {
+        return {
+            name:"default"          
+        }
+    },
+    componentWillReciveProps: function(nextProps) {
+        console.info("将要收到属性的改变",nextProps);
+    },
     setRequest: function () {
         //var body = {"name": "szdac","password":"8ddcff3a80f4189ca1c9d4d902c3c909"};
         console.info("账号",this.state.nameIputText);
@@ -31,6 +39,7 @@ var LoginPage = React.createClass({
     },
     getInitialState: function () {
         return {
+            name:"default",
             nameIputText:"",
             passIputText:"",
             response: {
@@ -81,6 +90,9 @@ var LoginPage = React.createClass({
                 name="button">
                 登录
             </button>
+            <h1>
+                {this.props.name}
+            </h1>
                 <h1>
                     {this.state.response.guardianId}
                     <br />
