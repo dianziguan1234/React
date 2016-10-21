@@ -5,8 +5,13 @@ import './HomePage.css';
 var HomePage = React.createClass({
     render: function() {
         return (
-            <div className="BackgroundImage">
-                gwc
+            <div className="Container">
+                <div className="Container1">
+                    gwc
+                </div>
+                <div className="Container2">
+                    gwc
+                </div>
             </div>
         );
     }
