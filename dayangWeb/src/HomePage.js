@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import md5 from "react-native-md5";
 import './HomePage.css';
+import dylogo from './dylogo.png'
+
 
 var HomePage = React.createClass({
     handleClick: function() {
@@ -8,27 +10,22 @@ var HomePage = React.createClass({
     },
     render: function() {
         return (
-            <div className="Container1">
+            <div className="Container">
                 <div className="LogoImage">
-                    <img src="logo.png" width="200" height="200"/>
-                    <h1>
-                        大羊健康管理                     
-                    </h1>
+                    <div>
+                        <img  src={dylogo} width="120" height="120"/>
+                    </div>
+                    <div className="DayangText">
+                        大羊健康管理
+                    </div>
                 </div>
                 <div className="InputBase">
-                    <input
-                        className="NameInput"
-                        type="text"
-                     />
-                    <input
-                        className="NameInput"
-                        type="text"
-                     />
-                     <button className="Button"
-                         onClick={this.handleClick}
-                         name="button">
-                         登录
-                     </button>
+                    <div className="DengLu">
+                        gwv
+                    </div>
+                    <div>
+                        gwv
+                    </div>
                 </div>
             </div>
         );
