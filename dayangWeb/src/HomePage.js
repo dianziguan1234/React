@@ -11,20 +11,31 @@ var HomePage = React.createClass({
     render: function() {
         return (
             <div className="Container">
-                <div className="LogoImage">
-                    <div>
-                        <img  src={dylogo} width="120" height="120"/>
+                <div className="Base">
+                    <div className="LogoImage">
+                        <img src={dylogo} width="120" height="120"/>
+                        <div className="DayangText">
+                            大羊健康管理
+                        </div>
                     </div>
-                    <div className="DayangText">
-                        大羊健康管理
-                    </div>
-                </div>
-                <div className="InputBase">
-                    <div className="DengLu">
-                        gwv
-                    </div>
-                    <div>
-                        gwv
+                    <div className="InputBase">
+                        <div className="DengLu">
+                            登陆
+                        </div>
+                        <input type="text"
+                            placeholder="请输入用户名"
+                            className="NamePut">
+                        </input>
+                        <input type="text"
+                            placeholder="请输入密码"
+                            className="NamePut">
+                        </input>
+                        <div className="Remenber">
+                            记住我
+                        </div>
+                        <button className="Button" name="button">
+                            登陆
+                        </button>
                     </div>
                 </div>
             </div>
