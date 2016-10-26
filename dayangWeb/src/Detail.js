@@ -5,8 +5,9 @@ import Bed from './Bed';
 var DetailPage = React.createClass({
     render: function() {
         let a = [1,2,3,4,5,6]
-        let b = a.map(value => {
-            return <Bed/>
+        let c = ["gwc","gwc2","gwc3","gwc4","gwc5","gwc6"]
+        let b = c.map(value => {
+            return <Bed name={value}/>
         })
 
         return(
@@ -23,6 +24,9 @@ var DetailPage = React.createClass({
                     </button>   
                 </div>
                 <div className="Second">
+                    <div className="describeText">
+                        总床位数 掉线 入住人数 告警
+                    </div>
                 </div>
                 <div className="Three">
                     {b}

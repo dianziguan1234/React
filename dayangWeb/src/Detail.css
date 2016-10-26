@@ -36,6 +36,7 @@
     height:60px;
     display:flex;
     flex-direction:row;
+    justify-content:flex-start;
 
 }
 .Three {
@@ -68,6 +69,11 @@
 
 .button1:hover {
     background-color: yellow;
+}
+.describeText {
+    margin-left:100px;
+    background-color:red;
+    font: 30px, arial, sans-serif;
 }
 
 

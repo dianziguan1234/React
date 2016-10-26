@@ -5,6 +5,7 @@ var BedBlock = React.createClass({
     render: function() {
         return(
             <div className="floating-box">
+                {this.props.name}
             </div>
         );
     }
