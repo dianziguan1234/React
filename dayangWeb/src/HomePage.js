@@ -47,6 +47,7 @@ var HomePage = React.createClass({
             this.setState({
                 response:responseData
             });
+            document.getElementById("root").style.visibility="hidden";
         })
         .catch((error) => {
             console.info("error",error);
