@@ -48,6 +48,12 @@ var HomePage = React.createClass({
             this.setState({
                 response:responseData
             });
+            if(responseData.token) {
+                console.info("token");
+                this.setState({isLogined:true});
+            }else{
+                console.info("notoken");
+            }
             //document.getElementById("root").style.visibility="hidden";
         })
         .catch((error) => {
@@ -55,7 +61,14 @@ var HomePage = React.createClass({
         });
     },
     render: function() {
-        return (
+        if(this.state.isLogined) {
+            return(
+                <div>
+                    gwc
+                </div>
+            );
+        }else{
+            return (
             <div className="Container">
                 <div className="Base">
                     <div className="LogoImage">
@@ -95,6 +108,7 @@ var HomePage = React.createClass({
                 </div>
             </div>
         );
+        }
     }
 });
 
