@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './Detail.css';
 
 var BedBlock = React.createClass({
     render: function() {
         return(
-            <div>
+            <div className="floating-box">
             </div>
         );
     }
