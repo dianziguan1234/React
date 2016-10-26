@@ -6,10 +6,20 @@ import TransProp from './TransProp';
 import LoginPage from './LLogin';
 import Home from './HomePage';
 
+var Router = require('react-router').Router;
+var Route = require('react-router').Route;
+var Link = require('react-router').Link;
+var IndexRoute = require('react-router').IndexRoute;
+
 ReactDOM.render(
     //<App date={new Date()} />,
     //<TransProp/>,
     //<LoginPage/>,
     <Home/>,
-  document.getElementById('root')
+    document.getElementById('root')
+    //<Router>
+    //    <Route path="/" component={Home}>
+    //    </Route>
+    //</Router>,
+    //document.getElementById('root')
 );

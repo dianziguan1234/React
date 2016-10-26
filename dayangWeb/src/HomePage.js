@@ -9,6 +9,7 @@ var HomePage = React.createClass({
         return {
             nameText:"",
             passText:"",
+            isLogined:false,
             response: {
                 "guardianId":"",
                 "token":"",
@@ -34,7 +35,7 @@ var HomePage = React.createClass({
         var passw = md5.hex_md5(String(this.state.passText));
         console.info("md5加密后字符串",passw);
         var body = {"name": this.state.nameText,"password":passw};
-        fetch("http://api.51aijia.ren:10000/gateway/sessions", {
+        fetch("http://rd.dayangdata.com:10000/gateway/sessions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -47,7 +48,7 @@ var HomePage = React.createClass({
             this.setState({
                 response:responseData
             });
-            document.getElementById("root").style.visibility="hidden";
+            //document.getElementById("root").style.visibility="hidden";
         })
         .catch((error) => {
             console.info("error",error);

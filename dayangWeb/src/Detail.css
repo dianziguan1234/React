@@ -1,0 +1,9 @@
+.BaseContainer {
+    position: fixed;
+    width: 100%;
+    height:100%;
+    background-color:#c38f9b;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
