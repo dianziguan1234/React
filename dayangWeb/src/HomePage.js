@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import dylogo from './dylogo.png';
 import md5 from "react-native-md5";
+import DetailPage from './Detail.js';
 
 
 var HomePage = React.createClass({
@@ -61,11 +62,10 @@ var HomePage = React.createClass({
         });
     },
     render: function() {
-        if(this.state.isLogined) {
+        if(!this.state.isLogined) {
             return(
-                <div>
-                    gwc
-                </div>
+                <DetailPage>
+                </DetailPage>
             );
         }else{
             return (

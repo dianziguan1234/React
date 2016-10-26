@@ -1,9 +1,19 @@
 .BaseContainer {
-    position: fixed;
     width: 100%;
     height:100%;
-    background-color:#c38f9b;
+    //background-color:yellow;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    flex-direction:row;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+}
+.BedBase {
+
+}
+.floating-box {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    background-color:red;
 }
