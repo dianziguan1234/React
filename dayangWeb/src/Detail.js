@@ -11,7 +11,22 @@ var DetailPage = React.createClass({
 
         return(
             <div className="BaseContainer">
-                {b}
+                <div className="First">
+                    <button className="button button1">
+                        用户名
+                    </button>   
+                    <button className="button button1">
+                        设备
+                    </button>   
+                    <button className="button button1">
+                        退出
+                    </button>   
+                </div>
+                <div className="Second">
+                </div>
+                <div className="Three">
+                    {b}
+                </div>
             </div>
         );
     }
