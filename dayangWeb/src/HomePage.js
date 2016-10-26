@@ -13,10 +13,14 @@ var HomePage = React.createClass({
             <div className="Container">
                 <div className="Base">
                     <div className="LogoImage">
-                        <img src={dylogo} width="120" height="120"/>
+                        <div className="Logo">
+                            <img className="Image"  src={dylogo} width="120" height="120"/>
+                        </div>
                         <div className="DayangText">
                             大羊健康管理
                         </div>
+                    </div>
+                    <div className="Seprate">
                     </div>
                     <div className="InputBase">
                         <div className="DengLu">

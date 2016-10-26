@@ -18,15 +18,15 @@
 .LogoImage {
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    //justify-content:center;
+    //align-items:center;
     width:50%;
     height:400px;
-    background-color:blue;
+    //background-color:blue;
 }
 .InputBase {
     display:flex;
-    background-color:red;
+    //background-color:red;
     width:50%;
     height:400px;
     margin-top:0px;
@@ -47,8 +47,10 @@
     background-color:#77216F;
 }
 .DayangText {
-    margin-top:10px;
+    margin-top:30px;
     font: 30px arial, sans-serif;
+    margin-right:100px;
+    text-align:right;
 }
 .DengLu {
     position:relative;
@@ -64,3 +66,20 @@
     margin-top:10px;
     font: 12px arial, sans-serif;
 }
+.Seprate {
+    margin-top:20px;
+    margin-bottom:20px;
+    height:auto;
+    background-color:white;
+    width:1px;
+}
+.Logo {
+    justify-content:flex-end;
+    flex-direction:row;
+    display:flex;
+}
+.Image {
+    margin-right:135px;
+    margin-top:100px;
+}
+
