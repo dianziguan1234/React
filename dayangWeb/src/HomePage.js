@@ -62,9 +62,12 @@ var HomePage = React.createClass({
         });
     },
     render: function() {
-        if(!this.state.isLogined) {
+        if(this.state.isLogined) {
+            //console.info("token",this.state.response.guardianId);
             return(
-                <DetailPage>
+                <DetailPage 
+                    passtoken={this.state.response.token} 
+                    passgurdian={this.state.response.guardianId} >
                 </DetailPage>
             );
         }else{
