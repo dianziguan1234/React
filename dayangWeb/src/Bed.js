@@ -22,13 +22,13 @@ var BedBlock = React.createClass({
                 </div>
                 <div className="bottom">
                     <div className="datadescribe">
-                        gwc
+                        {this.props.heartbeatLowerAlarm}
                     </div>
                     <div className="datadescribe">
-                        gwc
+                        {this.props.sex}
                     </div>
                     <div className="datadescribe">
-                        gwc
+                        {this.props.breathLowerAlarm}
                     </div>
                 </div>
             </div>

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './Detail.css';
+import './Detail.css'
 import Bed from './Bed';
 
 var DetailPage = React.createClass({
     getInitialState: function() {
         //var listArray = [];
         return {
-                users:[]
+            users:[],
+            devices:[],
+            totoalPeople:0
         }
     },
     componentDidMount: function() {
@@ -14,9 +16,13 @@ var DetailPage = React.createClass({
         var urlstr = "http://rd.dayangdata.com:10000/gateway/guardians/";
         urlstr = urlstr.concat(this.props.passgurdian);
         urlstr = urlstr.concat("/users");
+        var urldevice = "http://rd.dayangdata.com:10000/gateway/guardians/";
+        urldevice = urldevice.concat(this.props.passgurdian);
+        urldevice = urldevice.concat("/devices");
         console.info("拼接后的字符串",urlstr);
         var tokenStr="Bear ";
         tokenStr = tokenStr.concat(this.props.passtoken);
+        //获取所有的用户
         fetch(urlstr, {
             method: "GET",
             headers: {
@@ -26,14 +32,30 @@ var DetailPage = React.createClass({
         })
         .then((response) => response.json())
         .then((responseData) => {
-            console.info("data",responseData.users);
+            console.info("userdata",responseData.users);
             this.setState({
                 users:responseData.users});
 
         }) .catch((error) => {
             console.info("error",error);
         });
-        //console.info("用户列表",this.state.users);
+        //获取所有的设备
+        fetch(urldevice, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization":tokenStr
+            },
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            console.info("devicedata",responseData.devices);
+            this.setState({
+                devices:responseData.devices});
+
+        }) .catch((error) => {
+            console.info("error",error);
+        });
 
     },
     render: function() {
@@ -43,10 +65,14 @@ var DetailPage = React.createClass({
         //let c = ["gwc","gwc2","gwc3","gwc4","gwc5","gwc6"]
         let c = this.state.users 
         let b = c.map(value => {
-            return <Bed key={value.id} name={value.name}/>
+            return <Bed key={value.id} name={value.name} heartbeatLowerAlarm={value.heartbeatLowerAlarm} sex={value.sex} breathLowerAlarm={value.breathLowerAlarm}/>
         })
 
         console.info("用户列表",this.state.users);
+        console.info("设备列表",this.state.devices);
+        var describle = "总床位数";
+        describle = describle.concat(this.state.devices.length);
+        describle = describle.concat("掉线入住人数告警");
         return(
             <div className="BaseContainer">
                 <div className="First">
@@ -62,7 +88,7 @@ var DetailPage = React.createClass({
                 </div>
                 <div className="Second">
                     <div className="describeText">
-                        总床位数 掉线 入住人数 告警
+                        {describle}
                     </div>
                 </div>
                 <div className="Three">
