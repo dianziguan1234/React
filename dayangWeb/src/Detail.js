@@ -13,9 +13,13 @@ var DetailPage = React.createClass({
     },
     componentDidMount: function() {
         console.info("Did Mount");
-        var urlstr = "http://rd.dayangdata.com:10000/gateway/guardians/";
-        urlstr = urlstr.concat(this.props.passgurdian);
-        urlstr = urlstr.concat("/users");
+        var name = "Bob", time = "today";
+        var string =`Hello ${name}, how are you ${time}?`
+        console.info("string",string)
+        var guardID=this.props.passgurdian
+        var urlstr = `http://rd.dayangdata.com:10000/gateway/guardians/${guardID}/users`;
+        //urlstr = urlstr.concat(this.props.passgurdian);
+        //urlstr = urlstr.concat("/users");
         var urldevice = "http://rd.dayangdata.com:10000/gateway/guardians/";
         urldevice = urldevice.concat(this.props.passgurdian);
         urldevice = urldevice.concat("/devices");
