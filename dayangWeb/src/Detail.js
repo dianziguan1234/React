@@ -4,9 +4,9 @@ import Bed from './Bed';
 
 var DetailPage = React.createClass({
     getInitialState: function() {
-        var listArray = [];
+        //var listArray = [];
         return {
-                "users":{listArray}
+                users:[]
         }
     },
     componentDidMount: function() {
@@ -33,17 +33,20 @@ var DetailPage = React.createClass({
         }) .catch((error) => {
             console.info("error",error);
         });
-        console.info("用户列表",this.state.users);
+        //console.info("用户列表",this.state.users);
 
     },
     render: function() {
         //console.info("tokennnnnnnn",this.props.passtoken);
         //console.info("guardianId",this.props.passgurdian);
         let a = [1,2,3,4,5,6]
-        let c = ["gwc","gwc2","gwc3","gwc4","gwc5","gwc6"]
+        //let c = ["gwc","gwc2","gwc3","gwc4","gwc5","gwc6"]
+        let c = this.state.users 
         let b = c.map(value => {
-            return <Bed name={value}/>
+            return <Bed key={value.id} name={value.name}/>
         })
+
+        console.info("用户列表",this.state.users);
         return(
             <div className="BaseContainer">
                 <div className="First">

@@ -15,9 +15,11 @@
     width: 180px;
     height: 100px;
     margin: 10px;
-    background-color:red;
+    background-color:#BFBFBF;
    // margin-left:70px;
    border-radius: 10px;
+   flex-direction:column;
+   justify-content:flex-start;
 }
 .First {
     //background-color:yellow;

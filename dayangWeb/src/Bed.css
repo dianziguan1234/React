@@ -1,0 +1,41 @@
+.name {
+    width:auto;
+    height:20px;
+    background-color:red;
+    flex-direction:row;
+    justify-content:felx-end;
+    margin-right:20px;
+    text-align:right;
+    margin-top:8px;
+}
+.DivImage {
+    width:auto;
+    height:50px;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+    //background-color:yellow;
+    display:flex;
+}
+.centerPic {
+    height:50px;
+    width:auto;
+    margin-bottom:3px;
+}
+.bottom {
+    height:auto;
+    width:auto;
+    //background-color:blue;
+    border-radius: 10px;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:flex-start;
+    display:flex;
+    margin-left:6px;
+}
+.datadescribe {
+    width:40px;
+    height:auto;
+    //background-color:green;
+
+}
