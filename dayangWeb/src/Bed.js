@@ -7,9 +7,12 @@ import offbed from './offbed.png';
 
 
 var BedBlock = React.createClass({
+    handleClick: function() {
+        console.info(this.props.name);
+    },
     render: function() {
         return(
-            <div className="floating-box">
+            <div onClick={this.handleClick} className="floating-box">
                 <div className="name">
                     {this.props.name}
                 </div>
