@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Son from './LLogin';
+import './LLogin.css';
 
 var Parent = React.createClass({
     callBack:function(one,two) {
@@ -7,8 +8,10 @@ var Parent = React.createClass({
     },
     render: function () {
         return (
+            <div className="Maincontainer">
             <Son sendDataToParent = {this.callBack}>
             </Son>
+            </div>
         );
     }
 })
