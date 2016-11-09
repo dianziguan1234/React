@@ -8,16 +8,14 @@ import offbed from './offbed.png';
 
 var BedBlock = React.createClass({
     handleClick: function() {
-        console.info(this.props.data);
+        // console.info(this.props.data);
         this.props.callBack(this.props.data);
     },
     render: function() {
         return(
-            <div onClick={this.handleClick} className="floating-box">
-                <div className="name">
+            <div onClick={this.handleClick} className="floating-box"> <div className="name">
                     {this.props.name}
-                </div>
-                <div className="DivImage">
+                </div> <div className="DivImage">
                     <img src={beat} width="30" height="30" />
                     <div className="centerPic">
                         <img src={offbed} width="38" height="38" />

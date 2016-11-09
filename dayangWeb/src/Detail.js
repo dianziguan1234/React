@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Detail.css'
 import Bed from './Bed';
+import './PersonInfo.css';
 
 var DetailPage = React.createClass({
     getInitialState: function() {
@@ -9,11 +10,18 @@ var DetailPage = React.createClass({
             isEdit:false,
             users:[],
             devices:[],
-            totoalPeople:0
+            totoalPeople:0,
+            personInfo:{}
         }
     },
     getData: function(recive) {
-        console.info("reciveData",recive)
+        // console.info("reciveData",recive)
+        if(recive) {
+            this.setState({
+                isEdit: true,
+                personInfo:recive
+            });
+        }
     },
     componentDidMount: function() {
         console.info("Did Mount");
@@ -82,29 +90,58 @@ var DetailPage = React.createClass({
         var describle = "总床位数";
         describle = describle.concat(this.state.devices.length);
         describle = describle.concat("掉线入住人数告警");
-        return(
-            <div className="BaseContainer">
-                <div className="First">
-                    <button className="button button1">
-                        用户名
-                    </button>   
-                    <button className="button button1">
-                        设备
-                    </button>   
-                    <button className="button button1">
-                        退出
-                    </button>   
-                </div>
-                <div className="Second">
-                    <div className="describeText">
-                        {describle}
+        if(this.state.isEdit){
+            console.info(this.state.personInfo.name)
+            return(
+                <div className="BaseContainer">
+                    <div className="PerContainer">
+                    <input type="text"
+                        onChange={this.onChangeNameValue}
+                        value={this.state.personInfo.name}
+                        className="PerNameInput">
+                    </input>
+                    </div>
+                    <div className="PerContainer">
+                    <input type="text"
+                        onChange={this.onChangeAgeValue}
+                        value={this.state.personInfo.age}
+                        className="PerNameInput">
+                    </input>
+                    </div>
+                    <div className="PerContainer">
+                    <input type="text"
+                        onChange={this.onChangeCardIdValue}
+                        value={this.state.personInfo.cardId}
+                        className="PerNameInput">
+                    </input>
                     </div>
                 </div>
-                <div className="Three">
-                    {b}
+            );
+        }else{
+            return(
+                <div className="BaseContainer">
+                    <div className="First">
+                        <button className="button button1">
+                            用户名
+                        </button>   
+                        <button className="button button1">
+                            设备
+                        </button>   
+                        <button className="button button1">
+                            退出
+                        </button>   
+                    </div>
+                    <div className="Second">
+                        <div className="describeText">
+                            {describle}
+                        </div>
+                    </div>
+                    <div className="Three">
+                        {b}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } 
     }
 });
 export default DetailPage;
