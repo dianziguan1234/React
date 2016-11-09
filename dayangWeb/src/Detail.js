@@ -6,10 +6,14 @@ var DetailPage = React.createClass({
     getInitialState: function() {
         //var listArray = [];
         return {
+            isEdit:false,
             users:[],
             devices:[],
             totoalPeople:0
         }
+    },
+    getData: function(recive) {
+        console.info("reciveData",recive)
     },
     componentDidMount: function() {
         console.info("Did Mount");
@@ -69,7 +73,8 @@ var DetailPage = React.createClass({
         //let c = ["gwc","gwc2","gwc3","gwc4","gwc5","gwc6"]
         let c = this.state.users 
         let b = c.map(value => {
-            return <Bed key={value.id} name={value.name} heartbeatLowerAlarm={value.heartbeatLowerAlarm} sex={value.sex} breathLowerAlarm={value.breathLowerAlarm}/>
+            console.info("valuevalue",value);
+            return <Bed callBack={this.getData} data={value} key={value.id} name={value.name} heartbeatLowerAlarm={value.heartbeatLowerAlarm} sex={value.sex} breathLowerAlarm={value.breathLowerAlarm}/>
         })
 
         console.info("用户列表",this.state.users);

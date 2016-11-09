@@ -8,7 +8,8 @@ import offbed from './offbed.png';
 
 var BedBlock = React.createClass({
     handleClick: function() {
-        console.info(this.props.name);
+        console.info(this.props.data);
+        this.props.callBack(this.props.data);
     },
     render: function() {
         return(
