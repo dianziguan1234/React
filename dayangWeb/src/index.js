@@ -5,6 +5,7 @@ import './index.css';
 import TransProp from './TransProp';
 import LoginPage from './LLogin';
 import Home from './HomePage';
+import Parent from './ParentComponent';
 
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
@@ -15,7 +16,7 @@ ReactDOM.render(
     //<App date={new Date()} />,
     //<TransProp/>,
     //<LoginPage/>,
-    <Home/>,
+    <Parent/>,
     document.getElementById('root')
     //<Router>
     //    <Route path="/" component={Home}>

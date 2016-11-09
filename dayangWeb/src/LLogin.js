@@ -4,6 +4,9 @@ import md5 from "react-native-md5";
 import './LLogin.css';
 
 var LoginPage = React.createClass({
+    propTypes: {
+    sendDataToParent: React.PropTypes.func;
+  },
     getDefaultProps: function() {
         return {
             name:"default"          
@@ -51,6 +54,7 @@ var LoginPage = React.createClass({
     },
     handleSubmit: function () {
         console.info("name",this.state.nameIputText,"passWord",this.state.passIputText);
+        this.props.sentDataToParent(this.state.nameIputText,this.state.passIputText);
     },
     handleNameIput: function (event) {
         this.setState({
@@ -86,7 +90,7 @@ var LoginPage = React.createClass({
                 <br />
             </div>
             <button className="Button"
-                onClick={this.setRequest}
+                onClick={this.handleSubmit}
                 name="button">
                 登录
             </button>
