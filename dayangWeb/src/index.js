@@ -16,7 +16,8 @@ ReactDOM.render(
     //<App date={new Date()} />,
     //<TransProp/>,
     //<LoginPage/>,
-    <Parent/>,
+    //<Parent/>,
+    <Home />,
     document.getElementById('root')
     //<Router>
     //    <Route path="/" component={Home}>

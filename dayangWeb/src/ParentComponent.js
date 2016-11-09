@@ -8,10 +8,10 @@ var Parent = React.createClass({
     },
     render: function () {
         return (
-            <div className="Maincontainer">
+            //<div className="Maincontainer">
             <Son sendDataToParent = {this.callBack}>
             </Son>
-            </div>
+            //</div>
         );
     }
 })
