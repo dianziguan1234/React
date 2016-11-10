@@ -131,11 +131,33 @@ var DetailPage = React.createClass({
         })
         .then((response) => response.json())
        .then((responseData) => {
-            console.info("修改用户资料=================",responseData);
-            this.setState({
-                //response:responseData
-                isEdit:false
-            });
+           console.info("修改用户资料=================",responseData);
+           this.setState({
+               //response:responseData
+               isEdit:false,
+               nameTextField:"",
+               ageTextField:"",
+               cardIdNoField:"",
+               birthdayField:"",
+           });
+            var guardID = this.state.personInfo.guardianId
+           var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users`
+           fetch(urlstr, {
+               method: "GET",
+               headers: {
+                   "Content-Type": "application/json",
+                   "Authorization":this.state.token
+               },
+           })
+           .then((response) => response.json())
+           .then((responseData) => {
+               console.info("刷新事件=========",responseData.users);
+               this.setState({
+                   users:responseData.users});
+
+           }) .catch((error) => {
+               console.info("error",error);
+           });
             
         })
         .catch((error) => {
