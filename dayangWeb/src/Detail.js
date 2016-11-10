@@ -115,10 +115,12 @@ var DetailPage = React.createClass({
         var userID = this.state.personInfo.id
         var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users/${userID}`
         var body = {
-            "name":this.state.nameTextField,
-            "birthday":this.state.birthdayField,
-            "sex":this.state.ageTextField,
+            "name":this.state.nameTextField?this.state.nameTextField:this.state.personInfo.name,
+            "birthday":this.state.birthdayField?this.state.birthdayField:this.state.personInfo.birthday,
+            "sex":this.state.ageTextField?this.state.ageTextField:this.state.personInfo.sex,
+            // "carId":this.state.cardIdNoField?this.state.cardIdNoField:this.state.personInfo.cardId
         }
+        console.info("body==",body)
         fetch(urlstr, {
             method: "PUT",
             headers: {
@@ -129,10 +131,12 @@ var DetailPage = React.createClass({
         })
         .then((response) => response.json())
        .then((responseData) => {
-            console.info("修改用户资料",responseData);
+            console.info("修改用户资料=================",responseData);
             this.setState({
                 //response:responseData
+                isEdit:false
             });
+            
         })
         .catch((error) => {
             console.info("error",error);
@@ -141,6 +145,7 @@ var DetailPage = React.createClass({
     },
     handleSubmit: function () {
         console.info("queren")
+        this.editUser()
     },
     render: function() {
         //console.info("tokennnnnnnn",this.props.passtoken);
