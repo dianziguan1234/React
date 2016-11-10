@@ -118,7 +118,8 @@ var DetailPage = React.createClass({
             "name":this.state.nameTextField?this.state.nameTextField:this.state.personInfo.name,
             "birthday":this.state.birthdayField?this.state.birthdayField:this.state.personInfo.birthday,
             "sex":this.state.ageTextField?this.state.ageTextField:this.state.personInfo.sex,
-            // "carId":this.state.cardIdNoField?this.state.cardIdNoField:this.state.personInfo.cardId
+            "cardType":"idCard",
+            "cardId":this.state.cardIdNoField?this.state.cardIdNoField:this.state.personInfo.cardId
         }
         console.info("body==",body)
         fetch(urlstr, {
@@ -168,6 +169,15 @@ var DetailPage = React.createClass({
     handleSubmit: function () {
         console.info("queren")
         this.editUser()
+    },
+    userNameClick: function () {
+        console.info("userNameClick");
+    },
+    deviceClick: function () {
+        console.info("deviceClick")
+    },
+    signOut: function () {
+        console.info("signOut");
     },
     render: function() {
         //console.info("tokennnnnnnn",this.props.passtoken);
@@ -247,11 +257,17 @@ var DetailPage = React.createClass({
         }else{
             return( <div className="BaseContainer">
                     <div className="First">
-                        <button className="button button1"> 用户名
+                        <button className="button button1"
+                            onClick={this.userNameClick}
+                        > 用户名
                         </button>   
-                        <button className="button button1">
+                        <button className="button button1"
+                            onClick={this.deviceClick}
+                        >
                             设备
-                        </button>   <button className="button button1">
+                            </button>   <button className="button button1"
+                            onClick={this.signOut}
+                        >
                             退出
                         </button>   
                     </div>
