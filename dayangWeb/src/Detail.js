@@ -95,6 +95,9 @@ var DetailPage = React.createClass({
             return(
                 <div className="BaseContainer">
                     <div className="PerContainer">
+                        <h3>
+                            名字
+                        </h3>
                     <input type="text"
                         onChange={this.onChangeNameValue}
                         value={this.state.personInfo.name}
@@ -102,6 +105,9 @@ var DetailPage = React.createClass({
                     </input>
                     </div>
                     <div className="PerContainer">
+                        <h3>
+                            年龄
+                        </h3>
                     <input type="text"
                         onChange={this.onChangeAgeValue}
                         value={this.state.personInfo.age}
@@ -109,25 +115,48 @@ var DetailPage = React.createClass({
                     </input>
                     </div>
                     <div className="PerContainer">
+                        <h3>
+                            号码
+                        </h3>
                     <input type="text"
                         onChange={this.onChangeCardIdValue}
                         value={this.state.personInfo.cardId}
                         className="PerNameInput">
                     </input>
                     </div>
+                    <div className="PerContainer">
+                        <h3>
+                            生日
+                        </h3>
+                    <input type="text"
+                        onChange={this.onChangeBirthdayValue}
+                        value={this.state.personInfo.birthday}
+                        className="PerNameInput">
+                    </input>
+                    </div>
+                    <div className="Bottom">
+                        <button className="PButton"
+                        onClick={this.handleSubmit}
+                        name="button">
+                        取消
+                    </button>
+                    <button className="PButton"
+                        onClick={this.handleSubmit}
+                        name="button">
+                        确认
+                    </button>
+
+                    </div>
                 </div>
             );
         }else{
-            return(
-                <div className="BaseContainer">
+            return( <div className="BaseContainer">
                     <div className="First">
-                        <button className="button button1">
-                            用户名
+                        <button className="button button1"> 用户名
                         </button>   
                         <button className="button button1">
                             设备
-                        </button>   
-                        <button className="button button1">
+                        </button>   <button className="button button1">
                             退出
                         </button>   
                     </div>
