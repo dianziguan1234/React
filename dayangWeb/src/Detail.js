@@ -7,11 +7,18 @@ var DetailPage = React.createClass({
     getInitialState: function() {
         //var listArray = [];
         return {
+            nameTextField:"",
+            ageTextField:"",
+            cardIdNoField:"",
+            birthdayField:"",
             isEdit:false,
+            isNeedBack:false,
             users:[],
             devices:[],
             totoalPeople:0,
-            personInfo:{}
+            personInfo:{},
+            sex:"",
+            token:""
         }
     },
     getData: function(recive) {
@@ -38,6 +45,9 @@ var DetailPage = React.createClass({
         console.info("拼接后的字符串",urlstr);
         var tokenStr="Bear ";
         tokenStr = tokenStr.concat(this.props.passtoken);
+        this.setState({
+            token:tokenStr
+        })
         //获取所有的用户
         fetch(urlstr, {
             method: "GET",
@@ -74,6 +84,64 @@ var DetailPage = React.createClass({
         });
 
     },
+    onChangeNameValue: function(e) {
+        this.setState({
+            nameTextField:e.target.value
+        });
+    },
+    onChangeAgeValue: function(e) {
+        this.setState({
+            ageTextField:e.target.value
+        });
+    },
+    onChangeCardIdValue: function(e) {
+        this.setState({
+            cardIdNoField:e.target.value
+        });
+    },
+    onChangeBirthdayValue: function(e) {
+        this.setState({
+            birthdayField:e.target.value
+        });
+    },
+    handleCancle: function () {
+        console.info("quxiao")
+        this.setState({
+            isEdit:false
+        })
+    },
+    editUser: function () {
+        var guardID = this.state.personInfo.guardianId
+        var userID = this.state.personInfo.id
+        var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users/${userID}`
+        var body = {
+            "name":this.state.nameTextField,
+            "birthday":this.state.birthdayField,
+            "sex":this.state.ageTextField,
+        }
+        fetch(urlstr, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization":this.state.token
+            },
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+       .then((responseData) => {
+            console.info("修改用户资料",responseData);
+            this.setState({
+                //response:responseData
+            });
+        })
+        .catch((error) => {
+            console.info("error",error);
+        });
+ 
+    },
+    handleSubmit: function () {
+        console.info("queren")
+    },
     render: function() {
         //console.info("tokennnnnnnn",this.props.passtoken);
         //console.info("guardianId",this.props.passgurdian);
@@ -91,7 +159,7 @@ var DetailPage = React.createClass({
         describle = describle.concat(this.state.devices.length);
         describle = describle.concat("掉线入住人数告警");
         if(this.state.isEdit){
-            console.info(this.state.personInfo.name)
+            console.info(this.state.personInfo.id)
             return(
                 <div className="BaseContainer">
                     <div className="PerContainer">
@@ -100,17 +168,17 @@ var DetailPage = React.createClass({
                         </h3>
                     <input type="text"
                         onChange={this.onChangeNameValue}
-                        value={this.state.personInfo.name}
+                        value={this.state.nameTextField ? this.state.nameTextField : this.state.personInfo.name}
                         className="PerNameInput">
                     </input>
                     </div>
                     <div className="PerContainer">
                         <h3>
-                            年龄
+                            性别
                         </h3>
                     <input type="text"
                         onChange={this.onChangeAgeValue}
-                        value={this.state.personInfo.age}
+                        value={this.state.ageTextField ? this.state.ageTextField : this.state.personInfo.sex}
                         className="PerNameInput">
                     </input>
                     </div>
@@ -120,7 +188,7 @@ var DetailPage = React.createClass({
                         </h3>
                     <input type="text"
                         onChange={this.onChangeCardIdValue}
-                        value={this.state.personInfo.cardId}
+                        value={this.state.cardIdNoField ? this.state.cardIdNoField:this.state.personInfo.cardId}
                         className="PerNameInput">
                     </input>
                     </div>
@@ -130,13 +198,13 @@ var DetailPage = React.createClass({
                         </h3>
                     <input type="text"
                         onChange={this.onChangeBirthdayValue}
-                        value={this.state.personInfo.birthday}
+                        value={this.state.birthdayField ? this.state.birthdayField:this.state.personInfo.birthday}
                         className="PerNameInput">
                     </input>
                     </div>
                     <div className="Bottom">
                         <button className="PButton"
-                        onClick={this.handleSubmit}
+                        onClick={this.handleCancle}
                         name="button">
                         取消
                     </button>
