@@ -36,7 +36,8 @@ var HomePage = React.createClass({
         var passw = md5.hex_md5(String(this.state.passText));
         console.info("md5加密后字符串",passw);
         var body = {"name": this.state.nameText,"password":passw};
-        fetch("http://api.51aijia.ren:10000/gateway/sessions", {
+        //fetch("http://api.51aijia.ren:10000/gateway/sessions", {
+        fetch("http://rd.dayangdata.com:10000/gateway/sessions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

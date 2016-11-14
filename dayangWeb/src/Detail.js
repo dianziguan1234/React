@@ -36,10 +36,12 @@ var DetailPage = React.createClass({
         var string =`Hello ${name}, how are you ${time}?`
         console.info("string",string)
         var guardID=this.props.passgurdian
-        var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users`;
+        //var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users`;
+        var urlstr = `http://rd.dayangdata.com:10000/gateway/guardians/${guardID}/users`;
         //urlstr = urlstr.concat(this.props.passgurdian);
         //urlstr = urlstr.concat("/users");
-        var urldevice = "http://api.51aijia.ren:10000/gateway/guardians/";
+        //var urldevice = "http://api.51aijia.ren:10000/gateway/guardians/";
+        var urldevice = "http://rd.dayangdata.com:10000/gateway/guardians/";
         urldevice = urldevice.concat(this.props.passgurdian);
         urldevice = urldevice.concat("/devices");
         console.info("拼接后的字符串",urlstr);
@@ -113,7 +115,8 @@ var DetailPage = React.createClass({
     editUser: function () {
         var guardID = this.state.personInfo.guardianId
         var userID = this.state.personInfo.id
-        var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users/${userID}`
+        //var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users/${userID}`
+        var urlstr = `http://rd.dayangdata.com:10000/gateway/guardians/${guardID}/users/${userID}`
         var body = {
             "name":this.state.nameTextField?this.state.nameTextField:this.state.personInfo.name,
             "birthday":this.state.birthdayField?this.state.birthdayField:this.state.personInfo.birthday,
@@ -142,7 +145,8 @@ var DetailPage = React.createClass({
                birthdayField:"",
            });
             var guardID = this.state.personInfo.guardianId
-           var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users`
+            //var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users`
+           var urlstr = `http://rd.dayangdata.com:10000/gateway/guardians/${guardID}/users`
            fetch(urlstr, {
                method: "GET",
                headers: {
