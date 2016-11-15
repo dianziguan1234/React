@@ -36,6 +36,7 @@ var DescribeText = React.createClass({
       console.info("nextProps",nextProps,Date.now());
   },
     render: function () {
+        console.info("=========调用了render方法")
         return (
             <div>
                 你的选择{this.props.descibe} 
