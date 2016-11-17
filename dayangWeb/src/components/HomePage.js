@@ -54,9 +54,9 @@ var HomePage = React.createClass({
         .then((response) => response.json())
         .then((responseData) => {
             console.info("data",responseData);
-            // this.setState({
-            //     response:responseData
-            // });
+             this.setState({
+                 response:responseData
+             });
             // if(responseData.token) {
             //     console.info("token");
             //     this.setState({isLogined:true});
@@ -70,7 +70,9 @@ var HomePage = React.createClass({
             console.info(disAction)
             //var testaction = test("123","456")
             //console.info(testaction) 
-            this.props.HomeDispatch(this.state.nameText,this.state.passText,responseData)
+            if(responseData.token) {
+            this.props.HomeDispatch(this.state.nameText,this.state.passText,responseData,true)
+            }
         })
         .catch((error) => {
             console.info("error",error);
@@ -78,7 +80,7 @@ var HomePage = React.createClass({
     },
     render: function() {
         console.info("刷新之后的this.HomeState",this.props.HomeState)
-        if(this.state.isLogined) {
+        if(this.props.HomeState.reducer.isLogined) {
             //console.info("token",this.state.response.guardianId);
             return(
                 <DetailPage 

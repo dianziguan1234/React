@@ -20,8 +20,8 @@ const mapStateToProps = (state) => ({
     HomeState:state
 })
 const mapDispatchToProps = (dispatch) => ({
-    HomeDispatch:(userName,passWord,json) =>{
-        dispatch(btnClick(userName,passWord,json))
+    HomeDispatch:(userName,passWord,json,isLogined) =>{
+        dispatch(btnClick(userName,passWord,json,isLogined))
     }
 })
 export default connect (

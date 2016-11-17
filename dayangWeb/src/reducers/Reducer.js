@@ -16,7 +16,8 @@ export default function login(state=initialState,action) {
              return{
              nameText:action.userName,
              passText:action.passWord,
-             response:action.json
+             response:action.json,
+             isLogined:action.isLogined
             }
     default:
         return state
