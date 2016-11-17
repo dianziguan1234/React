@@ -8,7 +8,7 @@ import Home from './components/HomePage';
 import Parent from './ParentComponent';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import Reducer from './reducers'
+import reducer from './reducers/index'
 import AppContainer from './containers/AppContainer'
 import { render } from 'react-dom'
 
@@ -31,7 +31,7 @@ var IndexRoute = require('react-router').IndexRoute;
 //     //</Router>,
 //     //document.getElementById('root')
 // );
-const store = createStore(Reducer)
+const store = createStore(reducer)
 
 render(
     <Provider store={store}>

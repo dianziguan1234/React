@@ -4,6 +4,8 @@ import dylogo from '../dylogo.png';
 import md5 from "react-native-md5";
 import DetailPage from '../Detail.js';
 
+//import Reducer from '../reducers'
+//import { createStore } from 'redux'
 
 var HomePage = React.createClass({
     getInitialState: function() {
@@ -19,6 +21,10 @@ var HomePage = React.createClass({
 
         }
     },
+    componentDidMount: function() {
+        console.info("didMount")
+         console.info("this.HomeState",this.props.HomeState)
+    },
     onChangeNameValue: function(event) {
         this.setState({nameText:event.target.value});
     },
@@ -28,6 +34,8 @@ var HomePage = React.createClass({
     handleClick: function() {
         console.info("dianji");
         console.info("name",this.state.nameText,"password",this.state.passText);
+        //const store = createStore(Reducer)
+        console.info("==store",this.props.HomeState)
     },
     setRequest: function () {
         //var body = {"name": "szdac","password":"8ddcff3a80f4189ca1c9d4d902c3c909"};
@@ -105,7 +113,7 @@ var HomePage = React.createClass({
                             记住我
                         </div>
                         <button className="Button" name="button"
-                            onClick={this.setRequest}>
+                            onClick={this.handleClick}>
                             登录
                         </button>
                     </div>
