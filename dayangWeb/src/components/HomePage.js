@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './HomePage.css';
-import dylogo from './dylogo.png';
+import '../HomePage.css';
+import dylogo from '../dylogo.png';
 import md5 from "react-native-md5";
-import DetailPage from './Detail.js';
+import DetailPage from '../Detail.js';
 
 
 var HomePage = React.createClass({
