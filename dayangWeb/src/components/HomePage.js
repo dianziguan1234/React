@@ -3,7 +3,7 @@ import '../HomePage.css';
 import dylogo from '../dylogo.png';
 import md5 from "react-native-md5";
 import DetailPage from '../Detail.js';
-
+import {btnClick,test} from '../actions/BtnClickAction'
 //import Reducer from '../reducers'
 //import { createStore } from 'redux'
 
@@ -23,7 +23,8 @@ var HomePage = React.createClass({
     },
     componentDidMount: function() {
         console.info("didMount")
-         console.info("this.HomeState",this.props.HomeState)
+        console.info("之前的this.HomeState",this.props.HomeState)
+        console.info("this.HomeDispatch",this.props.HomeDispatch)
     },
     onChangeNameValue: function(event) {
         this.setState({nameText:event.target.value});
@@ -34,8 +35,6 @@ var HomePage = React.createClass({
     handleClick: function() {
         console.info("dianji");
         console.info("name",this.state.nameText,"password",this.state.passText);
-        //const store = createStore(Reducer)
-        console.info("==store",this.props.HomeState)
     },
     setRequest: function () {
         //var body = {"name": "szdac","password":"8ddcff3a80f4189ca1c9d4d902c3c909"};
@@ -55,22 +54,30 @@ var HomePage = React.createClass({
         .then((response) => response.json())
         .then((responseData) => {
             console.info("data",responseData);
-            this.setState({
-                response:responseData
-            });
-            if(responseData.token) {
-                console.info("token");
-                this.setState({isLogined:true});
-            }else{
-                console.info("notoken");
-            }
+            // this.setState({
+            //     response:responseData
+            // });
+            // if(responseData.token) {
+            //     console.info("token");
+            //     this.setState({isLogined:true});
+            // }else{
+            //     console.info("notoken");
+            // }
             //document.getElementById("root").style.visibility="hidden";
+            console.info(this.state.nameText)
+            console.info(this.state.passText)
+             var disAction = btnClick(this.state.nameText,this.state.passText,responseData)
+            console.info(disAction)
+            //var testaction = test("123","456")
+            //console.info(testaction) 
+            this.props.HomeDispatch(this.state.nameText,this.state.passText,responseData)
         })
         .catch((error) => {
             console.info("error",error);
         });
     },
     render: function() {
+        console.info("刷新之后的this.HomeState",this.props.HomeState)
         if(this.state.isLogined) {
             //console.info("token",this.state.response.guardianId);
             return(
@@ -113,7 +120,7 @@ var HomePage = React.createClass({
                             记住我
                         </div>
                         <button className="Button" name="button"
-                            onClick={this.handleClick}>
+                            onClick={this.setRequest}>
                             登录
                         </button>
                     </div>

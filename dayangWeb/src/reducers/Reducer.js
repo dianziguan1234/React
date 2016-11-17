@@ -13,11 +13,11 @@ const initialState = {
 export default function login(state=initialState,action) {
     switch(action.type) {
         case LoginType:
-        return{
-            nameText:action.userName,
-            passText:action.passWord,
-            response:action.json
-        }
+             return{
+             nameText:action.userName,
+             passText:action.passWord,
+             response:action.json
+            }
     default:
         return state
 
