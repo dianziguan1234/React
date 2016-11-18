@@ -11,6 +11,7 @@ import { Provider } from 'react-redux'
 import reducer from './reducers/index'
 import AppContainer from './containers/AppContainer'
 import { render } from 'react-dom'
+import Main from './components/Main'
 
 var Router = require('react-router').Router;
 var Route = require('react-router').Route;
@@ -35,7 +36,7 @@ const store = createStore(reducer)
 
 render(
     <Provider store={store}>
-        <AppContainer />
+         <Main />
     </Provider>,
     document.getElementById('root')
 ) 

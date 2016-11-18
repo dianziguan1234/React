@@ -1,4 +1,4 @@
-import {LoginType} from '../constants/ActionType'
+import {LoginType,DetailType} from '../constants/ActionType'
 
 export const btnClick = (userName,passWord,json,isLogined) => ({
     type:LoginType,
@@ -10,4 +10,9 @@ export const btnClick = (userName,passWord,json,isLogined) => ({
 export const test = (userName,passWord) => ({
     userName,
     passWord
+})
+export const detailActionCreate = (userJson,deviceJson) => ({
+    type:DetailType,
+    userJson,
+    deviceJson
 })

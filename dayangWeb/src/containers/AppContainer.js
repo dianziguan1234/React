@@ -19,11 +19,13 @@ import {btnClick} from '../actions/BtnClickAction'
 const mapStateToProps = (state) => ({
     HomeState:state
 })
+
 const mapDispatchToProps = (dispatch) => ({
     HomeDispatch:(userName,passWord,json,isLogined) =>{
         dispatch(btnClick(userName,passWord,json,isLogined))
     }
 })
+
 export default connect (
     mapStateToProps,
     mapDispatchToProps
