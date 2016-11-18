@@ -11,8 +11,8 @@ export const test = (userName,passWord) => ({
     userName,
     passWord
 })
-export const detailActionCreate = (userJson,deviceJson) => ({
+export const detailActionCreate = (users,devices) => ({
     type:DetailType,
-    userJson,
-    deviceJson
+    users,
+    devices
 })

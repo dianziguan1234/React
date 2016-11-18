@@ -12,7 +12,10 @@ var Main = React.createClass({
             )
         } else {
             return(
-            <Detail />
+                <Detail />
+                //<p>
+                //    twopage
+                //</p>
             )
         }
     }

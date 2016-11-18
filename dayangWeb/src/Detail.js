@@ -31,25 +31,29 @@ var DetailPage = React.createClass({
         }
     },
     componentDidMount: function() {
-        console.info("Did Mount");
-        var name = "Bob", time = "today";
-        var string =`Hello ${name}, how are you ${time}?`
-        console.info("string",string)
-        var guardID=this.props.passgurdian
+        console.info("Did Mount",this.props.DetailState.reducer);
+        //var name = "Bob", time = "today";
+        //var string =`Hello ${name}, how are you ${time}?`
+        //console.info("string",string)
+        //之前是通过props获取，现在通过全局的state来获取
+        //var guardID=this.props.passgurdian
+        var guardID=this.props.DetailState.reducer.response.guardianId
         //var urlstr = `http://api.51aijia.ren:10000/gateway/guardians/${guardID}/users`;
         var urlstr = `http://rd.dayangdata.com:10000/gateway/guardians/${guardID}/users`;
         //urlstr = urlstr.concat(this.props.passgurdian);
         //urlstr = urlstr.concat("/users");
         //var urldevice = "http://api.51aijia.ren:10000/gateway/guardians/";
         var urldevice = "http://rd.dayangdata.com:10000/gateway/guardians/";
-        urldevice = urldevice.concat(this.props.passgurdian);
+        urldevice = urldevice.concat(this.props.DetailState.reducer.response.guardianId);
         urldevice = urldevice.concat("/devices");
         console.info("拼接后的字符串",urlstr);
         var tokenStr="Bear ";
-        tokenStr = tokenStr.concat(this.props.passtoken);
-        this.setState({
-            token:tokenStr
-        })
+        //tokenStr = tokenStr.concat(this.props.passtoken);
+        tokenStr = tokenStr.concat(this.props.DetailState.reducer.response.token);
+        console.info("拼接后的token",tokenStr)
+        // This.setState({
+        //     token:tokenStr
+        // })
         //获取所有的用户
         fetch(urlstr, {
             method: "GET",
@@ -60,14 +64,10 @@ var DetailPage = React.createClass({
         })
         .then((response) => response.json())
         .then((responseData) => {
-            console.info("userdata",responseData.users);
-            this.setState({
-                users:responseData.users});
-
-        }) .catch((error) => {
-            console.info("error",error);
-        });
-        //获取所有的设备
+            console.info("所有的用户列表",responseData.users);
+             this.setState({
+                 users:responseData.users});
+            //获取所有的设备强制改变异步方法执行顺序
         fetch(urldevice, {
             method: "GET",
             headers: {
@@ -77,14 +77,25 @@ var DetailPage = React.createClass({
         })
         .then((response) => response.json())
         .then((responseData) => {
-            console.info("devicedata",responseData.devices);
-            this.setState({
-                devices:responseData.devices});
+            console.info("所有的设备列表",responseData.devices);
+             this.setState({
+               devices:responseData.devices});
+             //dispatch 一个方法异步方法
+        console.info("========================",this.state.users)
+        console.info("========================",this.state.devices)
+        this.props.DetailDispatch(this.state.users,this.state.devices)
 
         }) .catch((error) => {
             console.info("error",error);
         });
 
+
+
+
+        }) .catch((error) => {
+            console.info("error",error);
+        });
+        
     },
     onChangeNameValue: function(e) {
         this.setState({
@@ -186,16 +197,15 @@ var DetailPage = React.createClass({
     render: function() {
         //console.info("tokennnnnnnn",this.props.passtoken);
         //console.info("guardianId",this.props.passgurdian);
+        console.info("Detail页面render方法",this.props.DetailState)
         let a = [1,2,3,4,5,6]
         //let c = ["gwc","gwc2","gwc3","gwc4","gwc5","gwc6"]
-        let c = this.state.users 
+        //let c = this.state.users 
+        let c = this.props.DetailState.detailReducer.users 
         let b = c.map(value => {
             console.info("valuevalue",value);
             return <Bed callBack={this.getData} data={value} key={value.id} name={value.name} heartbeatLowerAlarm={value.heartbeatLowerAlarm} sex={value.sex} breathLowerAlarm={value.breathLowerAlarm}/>
         })
-
-        console.info("用户列表",this.state.users);
-        console.info("设备列表",this.state.devices);
         var describle = "总床位数";
         describle = describle.concat(this.state.devices.length);
         describle = describle.concat("掉线入住人数告警");
@@ -289,3 +299,4 @@ var DetailPage = React.createClass({
     }
 });
 export default DetailPage;
+        console.info("Detail页面render方法")

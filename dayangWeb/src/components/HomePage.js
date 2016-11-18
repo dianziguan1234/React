@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../HomePage.css';
 import dylogo from '../dylogo.png';
 import md5 from "react-native-md5";
-import DetailPage from '../Detail.js';
+//import DetailPage from '../Detail.js';
 import {btnClick,test} from '../actions/BtnClickAction'
 //import Reducer from '../reducers'
 //import { createStore } from 'redux'
@@ -23,7 +23,7 @@ var HomePage = React.createClass({
     },
     componentDidMount: function() {
         console.info("didMount")
-        console.info("之前的this.HomeState",this.props.HomeState)
+        console.info("this.HomeState",this.props.HomeState)
         console.info("this.HomeDispatch",this.props.HomeDispatch)
     },
     onChangeNameValue: function(event) {
@@ -80,15 +80,15 @@ var HomePage = React.createClass({
     },
     render: function() {
         console.info("刷新之后的this.HomeState",this.props.HomeState)
-        if(this.props.HomeState.reducer.isLogined) {
-            //console.info("token",this.state.response.guardianId);
-            return(
-                <DetailPage 
-                    passtoken={this.state.response.token} 
-                    passgurdian={this.state.response.guardianId} >
-                </DetailPage>
-            );
-        }else{
+        // if(this.props.HomeState.reducer.isLogined) {
+        //     //console.info("token",this.state.response.guardianId);
+        //     return(
+        //         <DetailPage 
+        //             passtoken={this.state.response.token} 
+        //             passgurdian={this.state.response.guardianId} >
+        //         </DetailPage>
+        //     );
+        //}else{
             return (
             <div className="Container">
                 <div className="Base">
@@ -129,7 +129,7 @@ var HomePage = React.createClass({
                 </div>
             </div>
         );
-        }
+            //}
     }
 });
 

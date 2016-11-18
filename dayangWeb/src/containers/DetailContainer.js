@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Detail from '../Detail'
+import Detail from '../Detail.js'
 import {detailActionCreate} from '../actions/BtnClickAction'
 
 const mapStateToProps = (state) => ({
@@ -7,8 +7,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    DetailDispatch:(userJson,deviceJson) => {
-        dispatch(detailActionCreate(userJson,deviceJson))
+    DetailDispatch:(users,devices) => {
+        dispatch(detailActionCreate(users,devices))
     }
 })
 

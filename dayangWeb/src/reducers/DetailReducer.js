@@ -10,8 +10,8 @@ export default function getUsersDevices (state=initialState,action) {
     switch (action.type) {
         case DetailType:
             return {
-            users:action.userJson,
-            devices:action.deviceJson
+            users:action.users,
+            devices:action.devices
         }
     default:
         return state
