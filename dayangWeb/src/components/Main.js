@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Home from './HomePage'
-import Detail from '../Detail'
+import Home from '../containers/AppContainer'
+import Detail from '../containers/DetailContainer'
 
 var Main = React.createClass({
     render: function () {
         console.info("MainState",this.props.MainState)
-        return (
-            <div>
-                gwc
-            </div>
-        )
+        if(!this.props.MainState.reducer.isLogined) {
+            return(
+                <Home />
+            )
+        } else {
+            return(
+            <Detail />
+            )
+        }
     }
 })
 
